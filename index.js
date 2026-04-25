@@ -54,13 +54,13 @@ const server = http.createServer((req, res) => {
     let path = './' 
     switch (req.url) {
         case '/':
-             path += 'index.html'; break;
+             path += 'index.html'; res.status(200); break;
         case '/about':
-             path += 'about.html'; break;
+             path += 'about.html'; res.status(200); break;
         case '/contact-me':
-             path += 'contact-me.html'; break;
+             path += 'contact-me.html'; res.status(200); break;
         default:
-             path += '404.html'; break;
+             path += '404.html'; res.status(404); break;
     }
 
     fs.readFile(path, (err, data) => {
